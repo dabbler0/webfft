@@ -1,0 +1,42 @@
+<html>
+<head>
+<style>
+canvas {
+  background-color: #FFF;
+}
+#viewport, .container {
+  text-align: center;
+}
+</style>
+<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div id="step1" class="container">
+  <h1> Step 1 </h1>
+  <button id="step1start" class="btn btn-primary">Start Recording</button>
+  <button id="step1stop" class="btn btn-danger disabled">Stop Recording</button><br/>
+  Click "Start recording", say "Red" repeatedly for about 10 seconds, then click "Stop recording".
+</div>
+<div id="step2" class="container"> 
+  <h1> Step 2 </h1>
+  <button id="step2start" class="btn btn-primary">Start Recording</button>
+  <button id="step2stop" class="btn btn-danger disabled">Stop Recording</button><br/>
+  Click "Start recording", say "Blue" repeatedly for about 10 seconds, then click "Stop recording".
+</div>
+<div id="viewport" class="container">
+  <h1> Step 3</h1>
+  <p>
+    Speak to change the color of this graph!
+  </p>
+  <canvas id="main" width=500 height=500> </canvas>
+  <table id="output" class="table table-striped">
+    <tr><td>Similarity to</td><td>-log(1-cosine_similarity)</td><td>Environmental average</td></tr>
+    <tr><td>RED</td><td id="red_val"></td><td id="red_avg"></td></tr>
+    <tr><td>BLUE</td><td id="blue_val"></td><td id="blue_avg"></td></tr>
+  </table>
+</div>
+<script src="vendor/jsfft/lib/complex_array.js"></script>
+<script src="vendor/jsfft/lib/fft.js"></script>
+<script src="webfft.js"></script>
+</body>
+</head>
